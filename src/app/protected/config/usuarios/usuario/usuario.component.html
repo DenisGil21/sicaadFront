@@ -1,0 +1,39 @@
+<div class="m-4">
+    <h3>Datos del usuario</h3>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <form [formGroup]="usuarioForm" (ngSubmit)="guardarUsuario()">
+                <div class="form-group">
+                    <label for="name">Nombre del usuario:</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                    <small *ngIf="campoNoValido('name')" class="text-center text-danger">
+                    El campo es obligatorio
+                </small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="text" class="form-control" id="email" formControlName="email">
+                    <small *ngIf="campoNoValido('email')" class="text-center text-danger">
+                    Debe introducir un correo válido
+                </small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" class="form-control" id="password" formControlName="password" autocomplete="off">
+                    <small *ngIf="campoNoValido('password')" class="text-center text-danger">
+                    La contraseña debe tener mas de 4 dígitos
+                </small>
+                </div>
+                <div class="form-group">
+                    <label for="password2">Repetir contraseña:</label>
+                    <input type="password" class="form-control" id="password2" formControlName="password2" autocomplete="off">
+                    <small *ngIf="campoNoValido('password2')" class="text-center text-danger">
+                    La contraseña debe ser igual a la anterior
+                </small>
+                </div>
+                <button class="btn btn-success w-100 mt-3" type="submit"><i class="fas fa-save"></i> Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

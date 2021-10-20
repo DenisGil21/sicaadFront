@@ -31,4 +31,9 @@ export class UserService {
     return this.http.post<boolean>(`${ this.baseUrl }/user/borrar`, { key }, { headers });
   }
 
+  crearUsuario(data:any){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', `Bearer ${ localStorage.getItem('token') }` || '');
+    return this.http.post(`${this.baseUrl}/user/crear`,data,{headers})
+  }
+
 }
